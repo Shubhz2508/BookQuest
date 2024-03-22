@@ -1,0 +1,12 @@
+<div>
+  <input type="text" placeholder="Search books" [(ngModel)]="searchQuery" (input)="searchBooks()">
+  <div class="book-list">
+    <div class="book-card" *ngFor="let book of filteredBooks">
+      <img [src]="'https://covers.openlibrary.org/b/id/' + book.coverId + '-M.jpg'" alt="Book Cover">
+      <h3>{{ book.title }}</h3>
+      <p>{{ book.author }}</p>
+      <p>Published Year: {{ book.publishedYear }}</p>
+      <button [class.read]="book.read" (click)="toggleReadStatus(book)">{{ book.read ? 'Read' : 'Unread' }}</button>
+    </div>
+  </div>
+</div>
